@@ -1,15 +1,15 @@
-package org.sweetiebelle.ironbackpacks.common.inventory;
+package org.sweetiebelle.simplebackpacks.common.inventory;
 
 import javax.annotation.Nonnull;
 
-import org.sweetiebelle.ironbackpacks.IronBackpacks;
-import org.sweetiebelle.ironbackpacks.common.BackpackType;
-import org.sweetiebelle.ironbackpacks.common.item.BackpackItems;
-import org.sweetiebelle.ironbackpacks.common.item.ItemBackpack;
-import org.sweetiebelle.ironbackpacks.common.item.ItemDiamondBackpack;
-import org.sweetiebelle.ironbackpacks.common.item.ItemGoldBackpack;
-import org.sweetiebelle.ironbackpacks.common.item.ItemIronBackpack;
-import org.sweetiebelle.ironbackpacks.common.item.ItemLeatherBackpack;
+import org.sweetiebelle.simplebackpacks.SimpleBackpacks;
+import org.sweetiebelle.simplebackpacks.common.BackpackType;
+import org.sweetiebelle.simplebackpacks.common.item.BackpackItems;
+import org.sweetiebelle.simplebackpacks.common.item.ItemBackpack;
+import org.sweetiebelle.simplebackpacks.common.item.ItemDiamondBackpack;
+import org.sweetiebelle.simplebackpacks.common.item.ItemGoldBackpack;
+import org.sweetiebelle.simplebackpacks.common.item.ItemIronBackpack;
+import org.sweetiebelle.simplebackpacks.common.item.ItemLeatherBackpack;
 
 import com.google.common.base.Preconditions;
 
@@ -48,8 +48,8 @@ public class InventoryProvider implements INBTSerializable<ListNBT> {
     }
     
     public void save() {
-        IronBackpacks.LOG.debug("Saving InventoryProvider with the following ItemStack");
-        IronBackpacks.LOG.debug(backpack.toString());
+        SimpleBackpacks.LOG.debug("Saving InventoryProvider with the following ItemStack");
+        SimpleBackpacks.LOG.debug(backpack.toString());
         if(!backpack.hasTag())
             backpack.setTag(new CompoundNBT());
         

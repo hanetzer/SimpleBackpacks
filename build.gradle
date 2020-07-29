@@ -14,8 +14,8 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '1.0'
-group = 'org.sweetiebelle.ironbackpacks' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'ironbackpacks'
+group = 'org.sweetiebelle.simplebackpacks' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'simplebackpacks'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -115,7 +115,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "ironbackpacks",
+            "Specification-Title": "simplebackpacks",
             "Specification-Vendor": "sweetiebelle",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,

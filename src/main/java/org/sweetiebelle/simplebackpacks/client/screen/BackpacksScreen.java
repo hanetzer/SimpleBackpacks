@@ -1,24 +1,21 @@
-package org.sweetiebelle.ironbackpacks.client.screen;
+package org.sweetiebelle.simplebackpacks.client.screen;
 
-import org.sweetiebelle.ironbackpacks.common.BackpackType;
-import org.sweetiebelle.ironbackpacks.common.container.BackpackContainer;
+import org.sweetiebelle.simplebackpacks.common.BackpackType;
+import org.sweetiebelle.simplebackpacks.common.container.BackpackContainer;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
-public class IronBackpacksScreen extends ContainerScreen<BackpackContainer> {
+public class BackpacksScreen extends ContainerScreen<BackpackContainer> {
 
     private BackpackType backpackType;
     private int textureXSize;
     private int textureYSize;
 
-    public IronBackpacksScreen(BackpackContainer container, PlayerInventory playerInventory, ITextComponent title) {
+    public BackpacksScreen(BackpackContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
 
         this.backpackType = container.getChestType();

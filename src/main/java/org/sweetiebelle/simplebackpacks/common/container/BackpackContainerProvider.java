@@ -1,8 +1,8 @@
-package org.sweetiebelle.ironbackpacks.common.container;
+package org.sweetiebelle.simplebackpacks.common.container;
 
-import org.sweetiebelle.ironbackpacks.common.BackpackType;
-import org.sweetiebelle.ironbackpacks.common.inventory.InventoryProvider;
-import org.sweetiebelle.ironbackpacks.common.item.ItemBackpack;
+import org.sweetiebelle.simplebackpacks.common.BackpackType;
+import org.sweetiebelle.simplebackpacks.common.inventory.InventoryProvider;
+import org.sweetiebelle.simplebackpacks.common.item.ItemBackpack;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

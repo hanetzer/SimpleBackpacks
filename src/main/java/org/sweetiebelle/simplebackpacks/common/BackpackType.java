@@ -1,22 +1,22 @@
-package org.sweetiebelle.ironbackpacks.common;
+package org.sweetiebelle.simplebackpacks.common;
 
 import java.util.Locale;
 
 import javax.annotation.Nullable;
 
-import org.sweetiebelle.ironbackpacks.IronBackpacks;
-import org.sweetiebelle.ironbackpacks.common.item.BackpackItems;
-import org.sweetiebelle.ironbackpacks.common.item.ItemBackpack;
+import org.sweetiebelle.simplebackpacks.SimpleBackpacks;
+import org.sweetiebelle.simplebackpacks.common.item.BackpackItems;
+import org.sweetiebelle.simplebackpacks.common.item.ItemBackpack;
 
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.ResourceLocation;
 
 public enum BackpackType implements IStringSerializable {
 
-    LEATHER("leather_backpack", 18, 9, 175, 149, new ResourceLocation(IronBackpacks.MODID, "textures/gui/leather_container.png"), 256, 256),
-    IRON("iron_backpack", 36, 9, 175, 185, new ResourceLocation(IronBackpacks.MODID, "textures/gui/iron_container.png"), 256, 256),
-    GOLD("gold_backpack", 54, 9, 175, 221, new ResourceLocation(IronBackpacks.MODID, "textures/gui/gold_container.png"), 256, 256),
-    DIAMOND("diamond_backpack", 77, 11, 219, 239, new ResourceLocation(IronBackpacks.MODID, "textures/gui/diamond_container.png"), 256, 256);
+    LEATHER("leather_backpack", 18, 9, 175, 149, new ResourceLocation(SimpleBackpacks.MODID, "textures/gui/leather_container.png"), 256, 256),
+    IRON("iron_backpack", 36, 9, 175, 185, new ResourceLocation(SimpleBackpacks.MODID, "textures/gui/iron_container.png"), 256, 256),
+    GOLD("gold_backpack", 54, 9, 175, 221, new ResourceLocation(SimpleBackpacks.MODID, "textures/gui/gold_container.png"), 256, 256),
+    DIAMOND("diamond_backpack", 77, 11, 219, 239, new ResourceLocation(SimpleBackpacks.MODID, "textures/gui/diamond_container.png"), 256, 256);
 
     public String name;
     public int size;

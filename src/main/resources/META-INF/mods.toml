@@ -1,9 +1,9 @@
 modLoader="javafml"
 loaderVersion="31.2.31"
 [[mods]]
-modId="ironbackpacks" 
+modId="simplebackpacks" 
 version="1"
-displayName="Iron Backpacks"
+displayName="Simple Backpacks"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Adds simple four different tiered backpacks.
