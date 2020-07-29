@@ -6,6 +6,7 @@ import org.sweetiebelle.simplebackpacks.common.container.BackpackContainerTypes;
 
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -13,7 +14,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 @EventBusSubscriber(value = Dist.CLIENT, modid = SimpleBackpacks.MODID, bus = Bus.MOD)
 public class BackpacksClient {
 
-    
+    @SubscribeEvent
     public static void setupClient(FMLClientSetupEvent event) {
         ScreenManager.registerFactory(BackpackContainerTypes.LEATHER_BACKPACK.get(), BackpacksScreen::new);
         ScreenManager.registerFactory(BackpackContainerTypes.IRON_BACKPACK.get(), BackpacksScreen::new);
