@@ -73,6 +73,8 @@ public class InventoryProvider implements INBTSerializable<ListNBT> {
             return null;
         ItemBackpack backpack = (ItemBackpack) item;
         InventoryProvider provider = new InventoryProvider(stack, backpack);
+        if(!stack.hasTag())
+            stack.setTag(new CompoundNBT());
         provider.deserializeNBT(stack.getTag().getList("inventory", 10));
         return provider;
     }
