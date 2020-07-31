@@ -1,6 +1,8 @@
 package org.sweetiebelle.simplebackpacks.common.container;
 
 import org.sweetiebelle.simplebackpacks.common.BackpackType;
+import org.sweetiebelle.simplebackpacks.common.container.slot.BackpackSlot;
+import org.sweetiebelle.simplebackpacks.common.container.slot.SlotHandler;
 import org.sweetiebelle.simplebackpacks.common.inventory.InventoryProvider;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -61,27 +63,10 @@ public class BackpackContainer extends Container {
         this.backpackType = backpackType;
 
         inventory.openInventory(playerInventory.player);
-
-        for (int chestRow = 0; chestRow < backpackType.getRowCount(); chestRow++)
-            for (int chestCol = 0; chestCol < backpackType.rowLength; chestCol++)
-                addSlot(new Slot(inventory, chestCol + chestRow * backpackType.rowLength, 12 + chestCol * 18, 18 + chestRow * 18));
-        int leftCol = (backpackType.xSize - 162) / 2 + 1;
-
-        for (int playerInvRow = 0; playerInvRow < 3; playerInvRow++)
-            for (int playerInvCol = 0; playerInvCol < 9; playerInvCol++)
-                addSlot(new Slot(playerInventory, playerInvCol + playerInvRow * 9 + 9, leftCol + playerInvCol * 18, backpackType.ySize - (4 - playerInvRow) * 18 - 10));
-
-        for (int hotbarSlot = 0; hotbarSlot < 9; hotbarSlot++) {
-            if (hotbarSlot == playerInventory.currentItem)
-                addSlot(new Slot(playerInventory, hotbarSlot, leftCol + hotbarSlot * 18, backpackType.ySize - 24) {
-                    @Override
-                    public boolean canTakeStack(final PlayerEntity player) {
-                        return false;
-                    }
-                });
-            else
-                addSlot(new Slot(playerInventory, hotbarSlot, leftCol + hotbarSlot * 18, backpackType.ySize - 24));
-        }
+        
+        SlotHandler slotHandler = new SlotHandler(provider.getInventory(), playerInventory, backpackType);
+        for(BackpackSlot slot : slotHandler.getSlots())
+            addSlot(slot);
     }
 
     @Override

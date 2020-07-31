@@ -47,6 +47,15 @@ public class InventoryProvider implements INBTSerializable<ListNBT> {
         this.inventory = Preconditions.checkNotNull(inventory);
     }
     
+    public void setItemStack(@Nonnull ItemStack backpack) {
+        if(backpack == null)
+            throw new NullPointerException();
+        if(!(backpack.getItem() instanceof ItemBackpack))
+            throw new IllegalArgumentException("Item " + backpack.getItem().toString() + " is not an ItemBackpack");
+        this.backpack = backpack;
+        save();
+    }
+    
     public void save() {
         SimpleBackpacks.LOG.debug("Saving InventoryProvider with the following ItemStack");
         SimpleBackpacks.LOG.debug(backpack.toString());

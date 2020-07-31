@@ -14,6 +14,7 @@ public class BackpacksScreen extends ContainerScreen<BackpackContainer> {
     private BackpackType backpackType;
     private int textureXSize;
     private int textureYSize;
+    private boolean diamondOffset;
 
     public BackpacksScreen(BackpackContainer container, PlayerInventory playerInventory, ITextComponent title) {
         super(container, playerInventory, title);
@@ -25,6 +26,7 @@ public class BackpacksScreen extends ContainerScreen<BackpackContainer> {
         this.textureYSize = backpackType.textureYSize;
 
         this.passEvents = false;
+        this.diamondOffset = backpackType.equals(BackpackType.DIAMOND);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class BackpacksScreen extends ContainerScreen<BackpackContainer> {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         this.font.drawString(this.title.getFormattedText(), 8.0F, 6.0F, 4210752);
-        this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, this.ySize - 96 + 2, 4210752);
+        this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), diamondOffset ? 30.0F : 8.0F, this.ySize - 96 + 2, 4210752);
     }
 
     @Override

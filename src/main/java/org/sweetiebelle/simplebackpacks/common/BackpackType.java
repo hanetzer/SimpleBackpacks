@@ -8,6 +8,7 @@ import org.sweetiebelle.simplebackpacks.SimpleBackpacks;
 import org.sweetiebelle.simplebackpacks.common.item.BackpackItems;
 import org.sweetiebelle.simplebackpacks.common.item.ItemBackpack;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.ResourceLocation;
 
@@ -46,13 +47,10 @@ public enum BackpackType implements IStringSerializable {
         return name().toLowerCase(Locale.ROOT);
     }
 
-    public String getEnglishName() {
-        return name;
-    }
 
     @Override
     public String getName() {
-        return getEnglishName();
+        return I18n.format("item.simplebackpacks.%s", name());
     }
 
     public int getRowCount() {
