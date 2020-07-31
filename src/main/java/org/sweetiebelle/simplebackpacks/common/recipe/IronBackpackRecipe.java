@@ -1,6 +1,5 @@
 package org.sweetiebelle.simplebackpacks.common.recipe;
 
-import org.sweetiebelle.simplebackpacks.SimpleBackpacks;
 import org.sweetiebelle.simplebackpacks.common.BackpackType;
 import org.sweetiebelle.simplebackpacks.common.inventory.InventoryProvider;
 import org.sweetiebelle.simplebackpacks.common.item.BackpackItems;
@@ -23,9 +22,7 @@ public class IronBackpackRecipe extends SpecialRecipe   {
 
     @Override
     public ItemStack getCraftingResult(CraftingInventory matrix) {
-        SimpleBackpacks.LOG.debug("Now calling getCraftingResult...");
         ItemStack stack = matrix.getStackInSlot(4);
-        SimpleBackpacks.LOG.debug(stack.toString());
         Item item = stack.getItem();
         if (!(item instanceof ItemBackpack) && !((ItemBackpack) item).getBackpackType().equals(BackpackType.LEATHER))
             return ItemStack.EMPTY;
@@ -36,7 +33,6 @@ public class IronBackpackRecipe extends SpecialRecipe   {
 
     @Override
     public boolean matches(CraftingInventory inv, World worldIn) {
-        SimpleBackpacks.LOG.debug("Now calling matches...");
         if (!Items.INGOTS_IRON.contains(inv.getStackInSlot(0).getItem()))
             return false;
         if (!Items.CHESTS.contains(inv.getStackInSlot(1).getItem()))
