@@ -6,11 +6,6 @@ import org.sweetiebelle.simplebackpacks.SimpleBackpacks;
 import org.sweetiebelle.simplebackpacks.common.BackpackType;
 import org.sweetiebelle.simplebackpacks.common.item.BackpackItems;
 import org.sweetiebelle.simplebackpacks.common.item.ItemBackpack;
-import org.sweetiebelle.simplebackpacks.common.item.ItemDiamondBackpack;
-import org.sweetiebelle.simplebackpacks.common.item.ItemGoldBackpack;
-import org.sweetiebelle.simplebackpacks.common.item.ItemIronBackpack;
-import org.sweetiebelle.simplebackpacks.common.item.ItemLeatherBackpack;
-
 import com.google.common.base.Preconditions;
 
 import net.minecraft.inventory.Inventory;
@@ -27,7 +22,7 @@ public class InventoryProvider implements INBTSerializable<ListNBT> {
 
     private InventoryProvider(ItemStack backpack, ItemBackpack backpackItem) {
         this.backpack = backpack;
-        inventory = new Inventory(backpackItem.getType().size);
+        inventory = new Inventory(backpackItem.getBackpackType().size);
 
     }
 
@@ -89,21 +84,22 @@ public class InventoryProvider implements INBTSerializable<ListNBT> {
     }
 
     public static InventoryProvider createEmptyInventoryProvider(BackpackType type) {
+        // I feel like there's a better way to do this...
         switch(type) {
             case DIAMOND: {
-                ItemDiamondBackpack diamondBackpack = BackpackItems.DIAMOND_BACKPACK.get();
+                ItemBackpack diamondBackpack = BackpackItems.DIAMOND_BACKPACK.get();
                 return new InventoryProvider(new ItemStack(diamondBackpack, 1), diamondBackpack);
             }
             case GOLD:{
-                ItemGoldBackpack goldBackpack = BackpackItems.GOLD_BACKPACK.get();
+                ItemBackpack goldBackpack = BackpackItems.GOLD_BACKPACK.get();
                 return new InventoryProvider(new ItemStack(goldBackpack, 1), goldBackpack);
             }
             case IRON:{
-                ItemIronBackpack ironBackpack = BackpackItems.IRON_BACKPACK.get();
+                ItemBackpack ironBackpack = BackpackItems.IRON_BACKPACK.get();
                 return new InventoryProvider(new ItemStack(ironBackpack, 1), ironBackpack);
             }
             case LEATHER:{
-                ItemLeatherBackpack leatherBackpack = BackpackItems.LEATHER_BACKPACK.get();
+                ItemBackpack leatherBackpack = BackpackItems.LEATHER_BACKPACK.get();
                 return new InventoryProvider(new ItemStack(leatherBackpack, 1), leatherBackpack);
             }
             default:

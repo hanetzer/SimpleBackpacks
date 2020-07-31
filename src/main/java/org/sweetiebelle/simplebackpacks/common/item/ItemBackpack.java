@@ -13,10 +13,13 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public abstract class ItemBackpack extends Item {
+public class ItemBackpack extends Item {
 
-    public ItemBackpack(Properties properties) {
+    private BackpackType type;
+
+    public ItemBackpack(Properties properties, BackpackType type) {
         super(properties);
+        this.type = type;
     }
 
     @Override
@@ -27,7 +30,9 @@ public abstract class ItemBackpack extends Item {
         return ActionResult.resultSuccess(held);
     }
 
-    public abstract BackpackType getType();
+    public BackpackType getBackpackType() {
+        return type;
+    }
     
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

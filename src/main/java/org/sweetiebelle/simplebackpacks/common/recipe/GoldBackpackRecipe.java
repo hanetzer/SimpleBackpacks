@@ -1,10 +1,13 @@
 package org.sweetiebelle.simplebackpacks.common.recipe;
 
 import org.sweetiebelle.simplebackpacks.SimpleBackpacks;
+import org.sweetiebelle.simplebackpacks.common.BackpackType;
 import org.sweetiebelle.simplebackpacks.common.inventory.InventoryProvider;
 import org.sweetiebelle.simplebackpacks.common.item.BackpackItems;
-import org.sweetiebelle.simplebackpacks.common.item.ItemIronBackpack;
+import org.sweetiebelle.simplebackpacks.common.item.ItemBackpack;
+
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.SpecialRecipe;
@@ -24,7 +27,8 @@ public class GoldBackpackRecipe extends SpecialRecipe {
     public ItemStack getCraftingResult(CraftingInventory matrix) {
         ItemStack stack = matrix.getStackInSlot(4);
         SimpleBackpacks.LOG.debug(stack.toString());
-        if (!(stack.getItem() instanceof ItemIronBackpack))
+        Item item = stack.getItem();
+        if (!(item instanceof ItemBackpack) && !((ItemBackpack) item).getBackpackType().equals(BackpackType.IRON))
             return ItemStack.EMPTY;
         ItemStack upgraded = getRecipeOutput();
         InventoryProvider.getProviderFromStack(stack).setItemStack(upgraded);
@@ -41,7 +45,8 @@ public class GoldBackpackRecipe extends SpecialRecipe {
             return false;
         if (!Items.INGOTS_GOLD.contains(inv.getStackInSlot(3).getItem()))
             return false;
-        if (!(inv.getStackInSlot(4).getItem() instanceof ItemIronBackpack))
+        Item item = inv.getStackInSlot(4).getItem();
+        if (!(item instanceof ItemBackpack) && !((ItemBackpack) item).getBackpackType().equals(BackpackType.IRON))
             return false;
         if (!Items.INGOTS_GOLD.contains(inv.getStackInSlot(5).getItem()))
             return false;

@@ -20,7 +20,7 @@ public class BackpackContainerProvider implements INamedContainerProvider {
     public BackpackContainerProvider(ItemStack stack) {
         if(!(stack.getItem() instanceof ItemBackpack))
             throw new IllegalArgumentException(stack.getItem().getClass() + " is not a ItemBackpack.");
-        this.type = ((ItemBackpack) stack.getItem()).getType();
+        this.type = ((ItemBackpack) stack.getItem()).getBackpackType();
         this.provider = InventoryProvider.getProviderFromStack(stack);
     }
 
